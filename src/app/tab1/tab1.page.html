@@ -1,50 +1,60 @@
-<main class="form-signin w-100 m-auto" >
-  <div [@slideOutInAnimation]>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Login 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <form [formGroup]="loginForm" (ngSubmit)="login()" class="needs-validation" novalidate>
-      <header></header>
+<ion-content [fullscreen]="true">
+  <main class="form-signin w-100 m-auto" >
+    <div>
 
-      <h1 class="h3 mb-3 fw-normal m-auto">Ingresá tus credenciales</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="needs-validation" novalidate>
+        <header></header>
 
-      @if(alert!='') {
-        <div class="alert alert-danger">
-            {{alert}}
+        <h1 class="h3 mb-3 fw-normal m-auto">Ingresá tus credenciales</h1>
+
+        @if(alert!='') {
+          <div class="alert alert-danger">
+              {{alert}}
+          </div>
+        }
+
+        <div class="form-floating">
+          <input formControlName="mail" name="mail" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{mail}}" (keyup.enter)="login()">
+          @if(loginForm.get('mail'); as aux) {
+            @if(aux.invalid && (aux.dirty || aux.touched)){
+                <div class="alert alert-danger">
+                    {{aux.hasError('required') ? 'Ingresá tu correo.' : 'Ingresá un correo válido.'}}
+                </div>
+            }   
+        }
+          <label for="floatingInput">Correo</label>
         </div>
-      }
+        <div class="form-floating">
+          <input formControlName="pass" name="pass" type="password" class="form-control" id="floatingPassword" placeholder="Password" value="{{pass}}" (keyup.enter)="login()">
+          @if(loginForm.get('pass'); as aux) {
+            @if(aux.invalid && (aux.dirty || aux.touched)){
+                <div class="alert alert-danger">
+                    {{aux.hasError('required') ? 'Ingresá tu contraseña.' : 'Mínimo 6 caracteres.'}}
+                </div>
+            }   
+        }
+          <label for="floatingPassword">Contraseña</label>
+        </div>
 
-      <div class="form-floating">
-        <input formControlName="mail" name="mail" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{mail}}" (keyup.enter)="login()">
-        @if(loginForm.get('mail'); as aux) {
-          @if(aux.invalid && (aux.dirty || aux.touched)){
-              <div class="alert alert-danger">
-                  {{aux.hasError('required') ? 'Ingresá tu correo.' : 'Ingresá un correo válido.'}}
-              </div>
-          }   
-      }
-        <label for="floatingInput">Correo</label>
-      </div>
-      <div class="form-floating">
-        <input formControlName="pass" name="pass" type="password" class="form-control" id="floatingPassword" placeholder="Password" value="{{pass}}" (keyup.enter)="login()">
-        @if(loginForm.get('pass'); as aux) {
-          @if(aux.invalid && (aux.dirty || aux.touched)){
-              <div class="alert alert-danger">
-                  {{aux.hasError('required') ? 'Ingresá tu contraseña.' : 'Mínimo 6 caracteres.'}}
-              </div>
-          }   
-      }
-        <label for="floatingPassword">Contraseña</label>
-      </div>
+        <button class="btn btn-primary w-100 py-2 mb-3" type="submit">Iniciar sesión</button>
 
-      <button class="btn btn-primary w-100 py-2 mb-3" type="submit">Iniciar sesión</button>
-
-    </form>
-  </div>
-  <div class="alert alert-danger">
-    <p>
-      {{pista}}
-    </p>
-    <p>
-      {{pistaDos}}
-    </p>
-</div>
-</main>
+      </form>
+    </div>
+    <div class="alert alert-danger">
+      <p>
+        {{pista}}
+      </p>
+      <p>
+        {{pistaDos}}
+      </p>
+    </div>
+  </main>
+</ion-content>
