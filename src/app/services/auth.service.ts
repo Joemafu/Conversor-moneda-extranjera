@@ -31,7 +31,7 @@ export class AuthService {
         .then(async (userCredential) => {
 
           const user = userCredential.user;
-          this.router.navigate(['/bienvenida']);
+          //this.router.navigate(['/bienvenida']);
           resolve('');
           if (user.email) {
             this.currentUser = user.email;

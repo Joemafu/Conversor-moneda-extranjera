@@ -1,50 +1,31 @@
-<main class="form-signin w-100 m-auto" >
-  <div [@slideOutInAnimation]>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <form [formGroup]="loginForm" (ngSubmit)="login()" class="needs-validation" novalidate>
-      <header></header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-      <h1 class="h3 mb-3 fw-normal m-auto">Ingresá tus credenciales</h1>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{usuario}}</ion-card-subtitle>
+      <ion-card-title>Bienvenido/a!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      It's dangerous to go alone! Take this <ion-icon name="hammer-outline"></ion-icon>
+    </ion-card-content>
+  </ion-card>
+  
+  <div class="container-fluid d-flex justify-content-center align-items-center full-width">
 
-      @if(alert!='') {
-        <div class="alert alert-danger">
-            {{alert}}
-        </div>
-      }
-
-      <div class="form-floating">
-        <input formControlName="mail" name="mail" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{mail}}" (keyup.enter)="login()">
-        @if(loginForm.get('mail'); as aux) {
-          @if(aux.invalid && (aux.dirty || aux.touched)){
-              <div class="alert alert-danger">
-                  {{aux.hasError('required') ? 'Ingresá tu correo.' : 'Ingresá un correo válido.'}}
-              </div>
-          }   
-      }
-        <label for="floatingInput">Correo</label>
-      </div>
-      <div class="form-floating">
-        <input formControlName="pass" name="pass" type="password" class="form-control" id="floatingPassword" placeholder="Password" value="{{pass}}" (keyup.enter)="login()">
-        @if(loginForm.get('pass'); as aux) {
-          @if(aux.invalid && (aux.dirty || aux.touched)){
-              <div class="alert alert-danger">
-                  {{aux.hasError('required') ? 'Ingresá tu contraseña.' : 'Mínimo 6 caracteres.'}}
-              </div>
-          }   
-      }
-        <label for="floatingPassword">Contraseña</label>
-      </div>
-
-      <button class="btn btn-primary w-100 py-2 mb-3" type="submit">Iniciar sesión</button>
-
-    </form>
+    <ion-button (click)="logout()">Cerrar Sesión</ion-button>
+  
   </div>
-  <div class="alert alert-danger">
-    <p>
-      {{pista}}
-    </p>
-    <p>
-      {{pistaDos}}
-    </p>
-</div>
-</main>
+</ion-content>
