@@ -15,8 +15,8 @@ export class AppComponent implements OnInit {
 
   isSplashVisible = true;
 
-  router : Router = inject(Router);
-  platform : Platform = inject(Platform);
+  //router : Router = inject(Router);
+  //platform : Platform = inject(Platform);
   
   constructor() {}
 
@@ -26,5 +26,4 @@ export class AppComponent implements OnInit {
       this.isSplashVisible = false;
     }, 3000); // 3 segundos
   }
-
 }
