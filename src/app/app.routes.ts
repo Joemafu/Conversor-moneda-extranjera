@@ -36,9 +36,5 @@ export const routes: Routes = [
         pathMatch: 'full',
       },
     ],
-  },
-  {
-    path: 'splash',
-    loadComponent: () => import('./components/splash/splash.page').then( m => m.SplashPage)
   }
 ];
