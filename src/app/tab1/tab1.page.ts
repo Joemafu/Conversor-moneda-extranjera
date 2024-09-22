@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonInput, IonList, IonItem, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCard, IonIcon } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -13,7 +12,7 @@ import { Subscription } from 'rxjs';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonCard, IonCardTitle, IonCardSubtitle, IonCardHeader, IonCardContent, IonItem, IonList, IonInput, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [IonIcon, IonCard, IonCardTitle, IonCardSubtitle, IonCardHeader, IonCardContent, IonItem, IonList, IonInput, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, FormsModule, CommonModule, ReactiveFormsModule],
 })
 export class Tab1Page implements OnInit {
 

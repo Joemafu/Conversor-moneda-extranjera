@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonInput, IonList, IonItem } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../../explore-container/explore-container.component';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -13,7 +12,7 @@ import { NavController } from '@ionic/angular';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonItem, IonList, IonInput, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [IonItem, IonList, IonInput, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, FormsModule, CommonModule, ReactiveFormsModule],
 })
 export class LoginPage implements OnInit {
 
