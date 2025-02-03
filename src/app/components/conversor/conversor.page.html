@@ -1,0 +1,16 @@
+<ion-content [fullscreen]="true">
+  
+  <div class="container-fluid d-flex justify-content-center align-items-center full-width">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Ingrese importe en yenes</ion-card-title>
+        <ion-card-title>${{ conversionADolar }} USD</ion-card-title>
+        <ion-card-title>${{ conversionAPeso }} ARS</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <img src="../../assets/img/yen.svg" height="25px" > 
+        <ion-input type="number" [ngModel]="input" (ionInput)="convert($event)" placeholder="Yenes"></ion-input>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

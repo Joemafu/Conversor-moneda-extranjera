@@ -1,5 +1,5 @@
 {
-  "name": "PruebaApp",
+  "name": "Conversor",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -10,7 +10,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "deploy": "ng build && firebase deploy --only hosting"
+    "deploy": "ng build && firebase deploy --only hosting",
+    "androide": "ng build && firebase deploy --only hosting && ionic cap build android"
   },
   "private": true,
   "dependencies": {
