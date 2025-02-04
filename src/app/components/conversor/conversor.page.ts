@@ -34,15 +34,15 @@ export class ConversorPage implements OnInit {
     if (this.error == null) {
 
       setTimeout(() => {
-        console.log('currencyValues disponibles:', this.currencyValues);
+        console.log('Valores disponibles:', this.currencyValues);
 
         if (this.currencyValues) {
           this.conversionADolar = (this.input * Number(this.currencyValues.USD)).toFixed(2);
-          this.conversionAPeso = (this.input * Number(this.currencyValues.ARS)).toFixed(2);
+          this.conversionAPeso = (this.input * Number(this.currencyValues.ARS) * 1.110).toFixed(2);
 
 
         } else {
-          console.warn('currencyValues aún no se han obtenido.');
+          console.warn('Aún no se han obtenido los valores.');
         }
       }, 50);
     } else {
