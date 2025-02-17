@@ -19,6 +19,7 @@ export class ConversorPage implements OnInit {
   conversionAPeso: string | null = null;
   input: number = 100;
   error: string | null = null;
+  errorMessage: string = '';
 
   ngOnInit(): void {
   }
@@ -38,15 +39,15 @@ export class ConversorPage implements OnInit {
 
         if (this.currencyValues) {
           this.conversionADolar = (this.input * Number(this.currencyValues.USD)).toFixed(2);
-          this.conversionAPeso = (this.input * Number(this.currencyValues.ARS) * 1.110).toFixed(2);
+          this.conversionAPeso = (this.input * Number(this.currencyValues.ARS) * 1.125).toFixed(2);
 
 
         } else {
-          console.warn('Aún no se han obtenido los valores.');
+          this.errorMessage = 'No se pudieron obtener los valores de las APIs.';
         }
       }, 50);
     } else {
-      console.warn('Se detectó un error:', this.error);
+      this.errorMessage = 'No se pudieron obtener los valores de las APIs.';
     }
   }
 
@@ -57,8 +58,7 @@ export class ConversorPage implements OnInit {
         this.error = null;
       },
       error: (err) => {
-        console.error('Error al consultar ambas APIs:', err);
-        this.error = 'No se pudieron obtener los valores de las APIs.';
+        this.errorMessage = 'No se pudieron obtener los valores de las APIs.';
       },
     });
   }  
