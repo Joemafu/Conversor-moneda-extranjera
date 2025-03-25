@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import {  IonContent, IonCardContent, IonCardHeader, IonCardTitle, IonCard } from '@ionic/angular/standalone';
+import { IonContent, IonCardContent, IonCardHeader, IonCardTitle, IonCard } from '@ionic/angular/standalone';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiRequestService } from 'src/app/services/api-request.service';
