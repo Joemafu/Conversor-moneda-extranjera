@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { IonContent, IonCardContent, IonCardHeader, IonCardTitle, IonCard } from '@ionic/angular/standalone';
+import { IonContent, IonCardContent, IonCardHeader, IonCardTitle, IonCard, IonInput } from '@ionic/angular/standalone';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiRequestService } from 'src/app/services/api-request.service';
@@ -9,20 +9,20 @@ import { ApiRequestService } from 'src/app/services/api-request.service';
   templateUrl: 'conversor.page.html',
   styleUrls: ['conversor.page.scss'],
   standalone: true,
-  imports: [ IonCard, IonCardTitle, IonCardHeader, IonCardContent, IonContent, FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [ IonInput, IonCard, IonCardTitle, IonCardHeader, IonCardContent, IonContent, FormsModule, CommonModule, ReactiveFormsModule ],
 })
 export class ConversorPage implements OnInit {
 
   private apiRequester = inject(ApiRequestService);
-  currencyValues: { USD: number; ARS: number } | null = null;
-  conversionADolar: string = '';
-  conversionAPeso: string = '';
-  input: number = 0;
-  errorMessage: string = '';
+  private currencyValues: { USD: number; ARS: number } | null = null;
+  protected conversionADolar: string = '';
+  protected conversionAPeso: string = '';
+  protected input: number = 0;
+  protected errorMessage: string = '';
 
   ngOnInit(): void {
     this.fetchValues();
-    this.convert({ target: { value: 0 } });
+    this.convert({ target: { value: this.input } });
   }
 
   convert(event : any): void {

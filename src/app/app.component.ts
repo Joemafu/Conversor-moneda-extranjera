@@ -1,7 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
-import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,9 +12,6 @@ import { CommonModule } from '@angular/common';
 export class AppComponent implements OnInit {
 
   isSplashVisible = true;
-
-  //router : Router = inject(Router);
-  //platform : Platform = inject(Platform);
   
   constructor() {}
 
