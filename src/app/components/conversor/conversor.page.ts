@@ -21,15 +21,13 @@ export class ConversorPage implements OnInit {
   errorMessage: string = '';
 
   ngOnInit(): void {
+    this.fetchValues();
     this.convert({ target: { value: 0 } });
-    this.errorMessage = '';
   }
 
   convert(event : any): void {
 
     this.input = event.target.value;
-
-    this.fetchValues();
 
     if (this.errorMessage == '') {
 
@@ -45,7 +43,6 @@ export class ConversorPage implements OnInit {
         }
       }, 150);
     }
-    console.log('Error:', this.errorMessage);
   }
 
   fetchValues(): void {
