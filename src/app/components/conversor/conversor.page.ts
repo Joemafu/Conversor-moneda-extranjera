@@ -38,7 +38,7 @@ export class ConversorPage implements OnInit {
 
         if (this.currencyValues) {
           this.conversionADolar = (this.input * Number(this.currencyValues.USD)).toFixed(2);
-          this.conversionAPeso = (this.input * Number(this.currencyValues.ARS) * 1.141057648660917 ).toFixed(2);
+          this.conversionAPeso = (this.input * Number(this.currencyValues.ARS) * 1.22 ).toFixed(2);
 
 
         } else {
@@ -59,5 +59,5 @@ export class ConversorPage implements OnInit {
         this.errorMessage = 'No se pudieron obtener los valores de las APIs.';
       },
     });
-  }  
+  }
 }
