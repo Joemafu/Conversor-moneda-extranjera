@@ -15,13 +15,14 @@ export class ConversorPage implements OnInit {
 
   private apiRequester = inject(ApiRequestService);
   currencyValues: { USD: number; ARS: number } | null = null;
-  conversionADolar: string | null = null;
-  conversionAPeso: string | null = null;
-  input: number = 100;
-  error: string | null = null;
+  conversionADolar: string = '';
+  conversionAPeso: string = '';
+  input: number = 0;
   errorMessage: string = '';
 
   ngOnInit(): void {
+    this.convert({ target: { value: 0 } });
+    this.errorMessage = '';
   }
 
   convert(event : any): void {
@@ -30,9 +31,7 @@ export class ConversorPage implements OnInit {
 
     this.fetchValues();
 
-
-
-    if (this.error == null) {
+    if (this.errorMessage == '') {
 
       setTimeout(() => {
         console.log('Valores disponibles:', this.currencyValues);
@@ -43,21 +42,20 @@ export class ConversorPage implements OnInit {
 
 
         } else {
-          this.errorMessage = 'No se pudieron obtener los valores de las APIs.';
+          this.errorMessage = 'Los valores son nulos.';
         }
-      }, 50);
-    } else {
-      this.errorMessage = 'No se pudieron obtener los valores de las APIs.';
+      }, 150);
     }
+    console.log('Error:', this.errorMessage);
   }
 
   fetchValues(): void {
     this.apiRequester.getCurrencyValues().subscribe({
       next: (values) => {
         this.currencyValues = values;
-        this.error = null;
+        this.errorMessage = '';
       },
-      error: (err) => {
+      error: () => {
         this.errorMessage = 'No se pudieron obtener los valores de las APIs.';
       },
     });

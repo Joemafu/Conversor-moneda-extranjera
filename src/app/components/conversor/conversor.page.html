@@ -6,7 +6,9 @@
         <ion-card-title>Ingrese importe en yenes</ion-card-title>
         <ion-card-title>${{ conversionADolar }} USD</ion-card-title>
         <ion-card-title>${{ conversionAPeso }} ARS</ion-card-title>
-        <ion-card-title class="danger">{{ errorMessage }}</ion-card-title>
+        @if (conversionADolar == '' && conversionAPeso == '' && input != 0 && errorMessage != '') {
+          <ion-card-title class="danger">{{ errorMessage }}</ion-card-title>
+        }
       </ion-card-header>
       <ion-card-content>
         <img src="../../assets/img/yen.svg" height="25px" > 
