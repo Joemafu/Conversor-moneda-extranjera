@@ -38,8 +38,7 @@ export class ConversorPage implements OnInit {
 
         if (this.currencyValues) {
           this.conversionADolar = (this.input * Number(this.currencyValues.USD)).toFixed(2);
-          this.conversionAPeso = (this.input * Number(this.currencyValues.ARS) * 1.22 ).toFixed(2);
-
+          this.conversionAPeso = (this.input * Number(this.currencyValues.USD) * this.currencyValues.ARS).toFixed(2);
 
         } else {
           this.errorMessage = 'Los valores son nulos.';
