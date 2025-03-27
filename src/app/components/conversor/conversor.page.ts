@@ -15,8 +15,8 @@ export class ConversorPage implements OnInit {
 
   private apiRequester = inject(ApiRequestService);
   private currencyValues: { USD: number; ARS: number } | null = null;
-  protected conversionADolar: string = '';
-  protected conversionAPeso: string = '';
+  protected conversionADolar: string = '0.00';
+  protected conversionAPeso: string = '0.00';
   protected input: number = 0;
   protected errorMessage: string = '';
 
