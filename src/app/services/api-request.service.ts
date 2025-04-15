@@ -14,7 +14,7 @@ export class ApiRequestService {
   private fallbackApiUrl =
     'https://currency-api.pages.dev/v1/currencies/jpy.min.json';
   private dolarMepApiUrl =
-    'https://dolarapi.com/v1/dolares/bolsa';
+    'https://dolarapi.com/v1/dolares/oficial';
 
   constructor() { }
 
